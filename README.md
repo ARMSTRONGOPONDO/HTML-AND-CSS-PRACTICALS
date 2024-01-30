@@ -1,4 +1,3 @@
-# HTML-AND-CSS-PRACTICALS
 <!DOCTYPE html>
 <html>
 
