@@ -1,0 +1,57 @@
+body, h1, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: gainsboro;
+  color: dimgray;
+}
+
+/* Header styles */
+h1 {
+  color: dodgerblue;
+  text-align: center;
+}
+
+/* Paragraph styles */
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Image styles */
+img {
+  width: 100%; /* Set width to 100% to ensure responsiveness --You can also use auto*/
+  height: 300;
+  border: 5px solid red; /* Border style for images with color #333 */
+  margin: 10px auto; /* Center-align images and add margin at the top and bottom */
+  display: block; /* Ensures images do not have extra space beneath them */
+}
+
+
+/* Container styles...wrapper or a box that holds a group of HTML elements */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /*rgba stands for red, green, blue, and alpha (transparency)*/
+}
+
+/* Class-based styles */
+.primary-text {
+  color: mediumseagreen;
+}
+
+.secondary-text {
+  color: indianred;
+}
+
+/* ID-based styles */
+#special-paragraph {
+  font-weight: bold;
+  text-decoration: underline;
+}
