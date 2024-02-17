@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata:wght@400&family=Montserrat:wght@400;500;600');
+
+:root {
+    --primary-color: #2bcbba;
+    --light-color: #1765be;
+    --white-color: rgb(250, 240, 240);
+    --dark-color: rgb(241, 237, 2);
+    --primary-font: 'Montserrat', sans-serif;
+    --second-font: 'Prata', serif;
+    --fs14: 14px;
+    --fw600: 600;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--dark-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a:hover {
+    color: var(--light-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.inner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.menu a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: var(--fs14);
+    font-weight: var(--fw600);
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.menu a:hover {
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.list-inline a {
+    color: var(--dark-color);
+    text-decoration: none;
+}
+
+.list-inline i {
+    margin-right: 5px;
+}
+
+.branding {
+    font-size: 24px;
+    font-weight: var(--fw600);
+    text-transform: uppercase;
+}
+
+.branding a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.branding a:hover {
+    color: var(--light-color);
+}
+
+.item-floating {
+    position: relative;
+    font-size: 10px;
+    font-weight: var(--fw600);
+    margin-left: 10px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.item-floating:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 992px) {
+    .menu-trigger {
+        display: grid;
+    }
+
+    .header-center nav {
+        display: grid;
+    }
+}
