@@ -1,130 +1,585 @@
 @import url('https://fonts.googleapis.com/css2?family=Prata:wght@400&family=Montserrat:wght@400;500;600');
 
+/* Define custom variables */
 :root {
     --primary-color: #2bcbba;
-    --light-color: #1765be;
-    --white-color: rgb(250, 240, 240);
-    --dark-color: rgb(241, 237, 2);
+    --light-color: #d1d8e0;
+    --gray-color: #687080;
+    --red-color: red;
+    --flashwhite-color: #f1f2f6;
+    --white-color: #ffffff;
+    --dark-color: rgba(12, 11, 12, 0.993);
+
     --primary-font: 'Montserrat', sans-serif;
     --second-font: 'Prata', serif;
     --fs14: 14px;
     --fw600: 600;
+
+    --transition-color: color .3s;
+    --transition-background: background-color .3s;
+    --transition-border: border .3s;
+    --transition-transform: transform .3s;
+
+    --shadow: 0px 10px 20px 0px rgb(0 0 0/20%);
+    --fade: fade-bottom .3s cubic-bezier(0.39, 0.575, 0.0565 .1)both;
 }
 
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;
     box-sizing: border-box;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
 *,
 ::before,
 ::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
+/* Set font, color, and background for body element */
 body {
     font-family: var(--primary-font);
     font-size: 16px;
-    font-weight: 400;
     line-height: 1.8;
-    color: var(--dark-color);
+    font-weight: 400px;
     background-color: var(--white-color);
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-a:hover {
-    color: var(--light-color);
-}
-
-header {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-}
-
-.inner-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.menu a {
-    color: var(--white-color);
-    text-decoration: none;
-    font-size: var(--fs14);
-    font-weight: var(--fw600);
-    text-transform: uppercase;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.menu a:hover {
-    background-color: var(--light-color);
-}
-
-.container {
-    max-width: 100%;
-    padding: 0 20px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-}
-
-.list-inline a {
     color: var(--dark-color);
+
+}
+
+a {
     text-decoration: none;
+    color: var(--dark-color);
+    -webkit-tap-highlight-color: transparent;
 }
 
-.list-inline i {
-    margin-right: 5px;
+/* Set styles for images */
+img {
+    max-width: 100%;
+    vertical-align: middle;
 }
 
-.branding {
-    font-size: 24px;
+ul {
+    list-style: none;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+input,
+textarea,
+select {
+    font: inherit;
+    width: 100%;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    width: auto;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: inherit;
+}
+
+/* Inherit font for button elements */
+button {
+    font: inherit;
+}
+
+/* Set font weight for strong elements or empasized ellements*/
+strong {
     font-weight: var(--fw600);
-    text-transform: uppercase;
 }
 
-.branding a {
-    color: var(--white-color);
-    text-decoration: none;
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--second-font);
+    font-weight: 400;
+    line-height: normal;
 }
 
-.branding a:hover {
-    color: var(--light-color);
+h1 {
+    font-size: 2.75em;
+
 }
+
+h2 {
+    font-size: 2.5em;
+
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+/* Set container styles */
+.container {
+    max-width: var(--mx-wdth, 1200px);
+    padding: 0 var(--gutter, 15px);
+    margin: 0 auto;
+}
+
+
+
+
+.thumbnails.video {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.thumbnails.video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .item-floating {
-    position: relative;
+    position: absolute;
     font-size: 10px;
     font-weight: var(--fw600);
-    margin-left: 10px;
+    top: -8px;
+    right: 0%;
     background-color: var(--primary-color);
     color: var(--white-color);
     width: 20px;
     height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
 }
 
-.item-floating:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.item-floating,
+.header-center .branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.list-block a {
+    position: relative;
+    font-size: var(--fs14);
+    color: var(--gray-color);
+    padding: 5px 0;
+    display: inline-block;
+    transition: var(--transition-color);
+}
+
+.list-block a:hover {
+    color: var(--red-color);
+}
+
+
+
+.list-block a::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background-color: var(--dark-color);
+    left: -15px;
+    top: 50%;
+    border-radius: 50px;
+    transform: translateY(.50%);
+    transition: width .3s, height .3s;
+}
+
+
+
+
+
+
+
+
+.menu a:hover::before {
+    width: 8px;
+    height: 8px;
+}
+
+@keyframes fade-bottom {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.dotgrid .dot-title {
+    font-size: var(--fs14);
+    font-weight: var(--fw600);
+    font-family: var(--primary-font);
+    line-height: 40px;
+}
+
+.dot-title a {
+    transition: var(--transition-color);
+}
+
+.dot-title a:hover,
+.dotgrid .product-price .before {
+    color: var(--light-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+.list-block a:hover {
+    color: var(--dark-color);
+}
+
+.header {
+    display: flex;
+    justify-content: baseline;
+}
+
+
+/* Set line height for inner-header element */
+.inner-header {
+    line-height: 80px;
+}
+
+/* Set display and align-items for inner-header wrap and menu elements */
+.inner-header :where(.wrap, .menu>ul),
+.list-inline>ul {
+    display: flex;
+    align-items: center;
+}
+
+/* Set flex-grow for header-left and header-right elements */
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align items at the start of the container */
+}
+
+.header-left,
+.header-right {
+    flex-grow: 1;
+}
+
+.header-left .list-inline {
+    display: none;
+}
+
+.header-right ul {
+    justify-content: flex-end;
+}
+
+.header-right i {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+/* Set display, grid-template-columns, gap, max-width, and align-content for header-center nav element */
+.header-center nav {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 180px;
+    max-width: 720px;
+}
+
+/* Set font size, font-weight, text-transform, and margin-left for branding element */
+.branding {
+    font-size: 24px;
+    font-weight: var(--fw600);
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+/* Set position, left, right, top, display, align-content, pointer-events, font-family, font-size, line-height, and pointer-events for header-center.branding a element */
+.header-center.branding {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.header-center .branding a {
+    font-family: var(--second-font);
+    font-size: 30px;
+    line-height: inherit;
+    pointer-events: auto;
+}
+
+/* Set font-size, font-weight, text-transform, and padding for header-center.menu>ul>li>a elements */
+.header-center .menu ul>li>a {
+    font-size: var(--fs14);
+    font-weight: var(--fw600);
+    text-transform: uppercase;
+    padding: 0 15px;
+    display: flex;
+    gap: 5px;
+
+}
+
+.list-inline .item-floating {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 12px;
+    padding: 3px 5px;
+    border-radius: 50%;
+}
+
+
+.list-inline i {
+    font-size: 24px;
+    margin-right: 5px;
+    display: block;
+}
+
+.header-right .list-inline {
+    flex: end;
+}
+
+.list-inline a,
+.menu-trigger {
+    position: relative;
+    font-size: 24px;
+    padding: 0 10px;
+    line-height: 1px;
+    display: flex;
+    transition: var(--transition-color);
+}
+
+.list-inline a:hover {
+    color: var(--light-color);
+}
+
+
+:where(.header-left, .header-right)li {
+    display: flex;
+    align-items: center;
+    line-height: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*product header*/
+.dotgrid .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gutter, 30px);
+}
+
+.dotgrid .item {
+    width: fit-content;
+}
+
+.dotgrid .dot-image {
+    position: relative;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+
+.dotgrid .dot-image>a,
+.dotgrid .thumnails.hover,
+.dotgrid .actions,
+.dotgrid .dot-image .lebel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+
+
+.dotgrid.dot-image>a {
+    z-index: 1;
+}
+
+.dotgrid .thumnails.hover {
+    opacity: 0;
+    transition: opacity 0.75s ease,
+        transform 1.1s cubic-bezier(0.15, 0.75, 0.5, 1) 0s;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.dotgrid .dot-image:hover .thumnails.hover {
+    opacity: 1;
+    transform: scale3d(1.1, 1.1, 1.1) translateZ(0);
+}
+
+.dot-image:hover .actions {
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+.dotgrid .actions .lebel {
+    display: flex;
+    justify-content: center;
+}
+
+.dotgrid .actions>ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: var(--red-color)
+}
+
+.dotgrid .actions ul li a,
+.dotgrid .dot-image .lebel span {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background-color: var(--white-colors);
+    border-radius: 50%;
+    transition: var(--transition-background), var(--transition-color);
+}
+
+.dotgrid .actions ul li a:hover {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+}
+
+.dotgrid .dot-image .lebel {
+    top: auto;
+    bottom: 20px;
+}
+
+.dotgrid .actions {
+    z-index: 2;
+    top: auto;
+    bottom: 20px;
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0, 0, .2, 1);
+}
+
+.dotgrid .dot-image .lebel span {
+    font-size: 12px;
+    font-weight: var(--fw600);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.dotgrid .dot-info {
+    align-items: center;
+}
+
+
+
+.dotgrid .product-price .before {
+    text-decoration: line-through;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 992px) {
     .menu-trigger {
-        display: grid;
+        display: none;
     }
 
     .header-center nav {
         display: grid;
     }
+
+    .header-left .list-inline {
+        display: block;
+    }
+
+    /*sub menu* and sub mega*/
+    nav.menu.sub-mega {
+        left: 0;
+        right: 0;
+        padding: 56px 0;
+        display: block;
+    }
+
+    nav.menu :where(.sub-menu, .sub-mega) {
+        position: absolute;
+        top: auto;
+        line-height: initial;
+        background-color: var(--white-color);
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        display: none;
+        animation: var(--fade);
+    }
+
+    nav.menu li:hover :where(.sub-menu, .sub-mega) {
+        display: block;
+    }
+
+    nav.menu .sub-menu {
+        padding: 10px 0px;
+    }
+
+    nav.menu .sub-menu li {
+        padding: 5px 30px;
+    }
+
+
 }
