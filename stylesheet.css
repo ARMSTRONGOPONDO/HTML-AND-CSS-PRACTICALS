@@ -69,6 +69,7 @@ ul {
 }
 
 p {
+    
     margin: 0 0 15px;
 }
 
@@ -119,7 +120,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2em;
+    font-size: 2.1em;
 }
 
 h4 {
@@ -136,18 +137,7 @@ h4 {
 
 
 
-.thumbnails.video {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-}
 
-.thumbnails.video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 
@@ -193,6 +183,11 @@ h4 {
 .list-block a:hover {
     color: var(--red-color);
 }
+
+
+
+
+
 
 
 
@@ -324,7 +319,7 @@ h4 {
 }
 
 /* Set position, left, right, top, display, align-content, pointer-events, font-family, font-size, line-height, and pointer-events for header-center.branding a element */
-.header-center.branding {
+.header-center .branding {
     position: absolute;
     left: 0;
     right: 0;
@@ -334,7 +329,7 @@ h4 {
 
 .header-center .branding a {
     font-family: var(--second-font);
-    font-size: 30px;
+    font-size: 23px;
     line-height: inherit;
     pointer-events: auto;
 }
@@ -344,7 +339,7 @@ h4 {
     font-size: var(--fs14);
     font-weight: var(--fw600);
     text-transform: uppercase;
-    padding: 0 15px;
+    padding: 5px 15px;
     display: flex;
     gap: 5px;
 
@@ -399,11 +394,16 @@ h4 {
 
 
 
-
-
-
-
 /*product header*/
+
+
+.dotgrid .wrapper {
+    display: var(--display, grid);
+    --grid-col: 175px;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-col), 100%), 1fr));
+    gap: var(--gutter, 30px);
+}
+
 .dotgrid .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -416,7 +416,7 @@ h4 {
 
 .dotgrid .dot-image {
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     overflow: hidden;
 }
 
@@ -434,7 +434,7 @@ h4 {
 
 
 
-.dotgrid.dot-image>a {
+.dotgrid .dot-image>a {
     z-index: 1;
 }
 
@@ -508,10 +508,8 @@ h4 {
 }
 
 .dotgrid .dot-info {
-    align-items: center;
+    text-align: center;
 }
-
-
 
 .dotgrid .product-price .before {
     text-decoration: line-through;
@@ -520,6 +518,86 @@ h4 {
 
 
 
+
+
+
+
+
+/*video styling*/
+
+
+.thumbnails.video {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.thumbnails.video video {
+    width: inherit;
+    height: inherit;
+}
+
+
+
+
+
+.animated-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #df1e1e;
+    z-index: 10;
+    animation: slide-up 1.7s ease-in-out infinite alternate, change-color 5s infinite;
+}
+
+.animated-text h2 {
+    font-size: 5rem;
+    margin-bottom: 10px;
+}
+
+.animated-text p {
+    font-size: 3.2rem;
+}
+
+
+
+
+
+/*text on the video*/
+@keyframes change-color {
+
+    0%,
+    25% {
+        color: #ff6f61;
+        /* Start color */
+    }
+
+    25.01%,
+    50% {
+        color: #72d4a7;
+        /* End color */
+    }
+
+    50.01%,
+    100% {
+        color: #2214eb;
+        /* End color */
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translate(-50%, 0%);
+    }
+
+    to {
+        transform: translate(-50%, -10px);
+    }
+}
 
 
 
@@ -551,11 +629,22 @@ h4 {
     }
 
     /*sub menu* and sub mega*/
-    nav.menu.sub-mega {
+    .mega-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+    }
+
+    .mega-content .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+        gap: 10px;
+    }
+
+    nav.menu .sub-mega {
         left: 0;
         right: 0;
-        padding: 56px 0;
-        display: block;
+        padding: 50px 0;
     }
 
     nav.menu :where(.sub-menu, .sub-mega) {
@@ -574,12 +663,23 @@ h4 {
     }
 
     nav.menu .sub-menu {
-        padding: 10px 0px;
+        padding: 10px 0;
     }
 
     nav.menu .sub-menu li {
         padding: 5px 30px;
     }
+}
 
+@media (min-width: 1200px) {
+    .container .wide {
+        --max-width: 1720px;
+        --gutter: 15px;
+    }
+}
 
+@media (min-width: 1400px) {
+    .mega-content {
+        grid-template-columns: 1fr 1fr;
+    }
 }
