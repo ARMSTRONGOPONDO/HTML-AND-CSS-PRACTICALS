@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Survey</title>
+    <style>
+        body {
+            text-align: center;
+            background-image: url('campeighnpics/campeighnpic1.avif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        legend {
+            color: white;
+            font-size: 1.5em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: lightseagreen;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkcyan;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("feedbackForm");
+
+            form.addEventListener("submit", function(event) {
+                // Prevent form submission if validation fails
+                if (!validateForm()) {
+                    event.preventDefault();
+                }
+            });
+
+            function validateForm() {
+                let isValid = true;
+
+                // Validate name field
+                const nameInput = document.getElementById("name");
+                if (nameInput.value.trim() === "") {
+                    isValid = false;
+                    setErrorFor(nameInput, "Name cannot be blank");
+                } else {
+                    setSuccessFor(nameInput);
+                }
+
+                // Validate id field
+                const idInput = document.getElementById("id");
+                if (idInput.value.trim() === "") {
+                    isValid = false;
+                    setErrorFor(idInput, "ID number cannot be blank");
+                } else {
+                    setSuccessFor(idInput);
+                }
+
+                // Validate email field
+                const emailInput = document.getElementById("email");
+                if (emailInput.value.trim() === "") {
+                    isValid = false;
+                    setErrorFor(emailInput, "Email cannot be blank");
+                } else if (!isEmailValid(emailInput.value.trim())) {
+                    isValid = false;
+                    setErrorFor(emailInput, "Email is not valid");
+                } else {
+                    setSuccessFor(emailInput);
+                }
+
+                // Validate feedback field
+                const feedbackInput = document.getElementById("feedback");
+                if (feedbackInput.value.trim() === "") {
+                    isValid = false;
+                    setErrorFor(feedbackInput, "Feedback cannot be blank");
+                } else {
+                    setSuccessFor(feedbackInput);
+                }
+
+                // Validate rating field
+                const ratingInput = document.getElementById("rating");
+                if (ratingInput.value.trim() === "") {
+                    isValid = false;
+                    setErrorFor(ratingInput, "Rating cannot be blank");
+                } else if (!isRatingValid(ratingInput.value.trim())) {
+                    isValid = false;
+                    setErrorFor(ratingInput, "Rating must be between 1 and 5");
+                } else {
+                    setSuccessFor(ratingInput);
+                }
+
+                return isValid;
+            }
+
+            function setErrorFor(input, message) {
+                const formControl = input.parentElement;
+                const errorMessage = formControl.querySelector("small");
+
+                // Display error message
+                errorMessage.innerText = message;
+                formControl.className = "error";
+            }
+
+            function setSuccessFor(input) {
+                const formControl = input.parentElement;
+                formControl.className = "";
+            }
+
+            function isEmailValid(email) {
+                // Basic email validation using regex
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+
+            function isRatingValid(rating) {
+                // Rating validation: must be an integer between 1 and 5
+                const parsedRating = parseInt(rating);
+                return !isNaN(parsedRating) && parsedRating >= 1 && parsedRating <= 5;
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <form id="feedbackForm" method="post" action="submit_feedback.php" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Campaign Survey</legend>
+            <p><b>ID Number</b>:
+                <input type="number" id="id" name="id" required>
+            </p>
+            <p><b>Name</b>:
+                <input type="text" id="name" name="name" required>
+            </p>
+            <p><b>Email</b>:
+                <input type="email" id="email" name="email" required>
+            </p>
+            <p><b>Feedback</b>:</p>
+            <textarea id="feedback" name="feedback" rows="7" required></textarea>
+            <p><b>Rating (1-5)</b>:
+                <input type="number" id="rating" name="rating" min="1" max="5" required>
+            </p>
+            <p>
+                <input type="submit" value="Submit Feedback">
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>
