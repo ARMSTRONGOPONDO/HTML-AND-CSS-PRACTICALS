@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Obituaries</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h2>View Obituaries</h2>
+    {% if obituaries %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Date of Death</th>
+                <th>Content</th>
+                <th>Author</th>
+                <th>Submission Date</th>
+            </tr>
+            {% for obituary in obituaries %}
+            <tr>
+                <td>{{ obituary.id }}</td>
+                <td>{{ obituary.name }}</td>
+                <td>{{ obituary.date_of_birth }}</td>
+                <td>{{ obituary.date_of_death }}</td>
+                <td>{{ obituary.content }}</td>
+                <td>{{ obituary.author }}</td>
+                <td>{{ obituary.submission_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No obituaries found</p>
+    {% endif %}
+</body>
+</html>

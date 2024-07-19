@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obituary Submission Form</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        background-image: url("{{ url_for('static', filename='images/ob_image.jpg') }}");
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    form {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        max-width: 400px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    input[type=text],
+    input[type=date],
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    input[type=submit],
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    input[type=submit]:hover,
+    button:hover {
+        background-color: #45a049;
+    }
+    </style>
+    <script>
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var dateOfBirth = document.getElementById('dateOfBirth').value;
+        var dateOfDeath = document.getElementById('dateOfDeath').value;
+        var content = document.getElementById('content').value;
+        var author = document.getElementById('author').value;
+
+        if (name == "" || dateOfBirth == "" || dateOfDeath == "" || content == "" || author == "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        return true;
+    }
+    </script>
+</head>
+<body>
+    <h2>Obituary Submission Form</h2>
+    <form action="{{ url_for('submit_obituary') }}" method="POST" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="dateOfBirth">Date of Birth:</label><br>
+        <input type="date" id="dateOfBirth" name="dateOf_birth" required><br><br>
+
+        <label for="dateOfDeath">Date of Death:</label><br>
+        <input type="date" id="dateOfDeath" name="date_of_death" required><br><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{{ url_for('view_obituaries') }}">
+        <button>View Obituaries</button>
+    </a>
+</body>
+</html>
