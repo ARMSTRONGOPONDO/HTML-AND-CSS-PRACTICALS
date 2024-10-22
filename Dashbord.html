@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: url('https://cdn.wallpapersafari.com/18/85/udTL2N.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(75, 0, 130, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #4b0082;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #4b0082;
+            color: #fff;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .main-content article,
+        .main-content aside {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .auth-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .auth-section a {
+            display: inline-block;
+            background-color: #4b0082;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background 0.3s;
+        }
+
+        .auth-section a:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: rgba(75, 0, 130, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        function confirmLogout(event) {
+            event.preventDefault();
+            if (confirm("Are you sure you want to logout?")) {
+                window.location.href = 'logout.html';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>PARENT FOLLOW-UP PLATFORM</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="ABOUT US.html" class="ABOUT">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact us.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="main-content">
+        <article>
+            <h2>Welcome to the Parents website!</h2>
+            <p>This is the main content area of our dashboard. You can put any relevant information, updates, or links here.</p>
+        </article>
+        <aside>
+            <h3>Parent Quick Links</h3>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="notification.html">Notifications</a></li>
+                <li><a href="#" onclick="confirmLogout(event)">Logout</a></li>
+            </ul>
+        </aside>
+    </section>
+    <section class="auth-section">
+        <a href="login page.html" class="login">Login</a>
+        <a href="sign-up page.html" class="signup">Sign Up</a>
+    </section>
+    <footer>
+        <p>&copy; 2024 PARENT FOLLOW-UP PLATFORM. All rights reserved.</p>
+    </footer>
+</body>
+</html>

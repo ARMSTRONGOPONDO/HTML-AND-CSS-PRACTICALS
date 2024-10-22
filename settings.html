@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://th.bing.com/th/id/R.4a4edadb6df3d7c368f2a7e36c75b87c?rik=l5fjdrnUYG3JgQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fe%2fd%2f2%2f489156.jpg&ehk=VpTxKADTR82XvJCYrbS9%2ftrMmiGnAVHzY%2bLRWVtcnHY%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+  
+        .dashboard {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+        }
+
+        .settings-section {
+            margin: 20px 0;
+            background-color: #00FFFF;
+        }
+
+        .settings-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .settings-item {
+            margin-bottom: 20px;
+        }
+
+        .settings-item h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .settings-item form {
+            display: none; 
+            flex-direction: column;
+        }
+
+        .settings-item label {
+            margin-bottom: 5px;
+            color: #777;
+        }
+
+        .settings-item input[type="password"],
+        .settings-item input[type="email"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .settings-item button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .settings-item button:hover {
+            background-color: #0056b3;
+        }
+
+        .settings-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .show-form {
+            display: block !important; 
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="settings-section">
+            <h2>Settings</h2>
+            <div class="settings-item">
+                <button class="toggle-form" data-target="change-password">Change Password</button>
+                <form id="change-password" class="form" action="#">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" placeholder="Enter current password">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" placeholder="Enter new password">
+                    <button type="submit">Update Password</button>
+                </form>
+            </div>
+            <div class="settings-item">
+                <button class="toggle-form" data-target="update-email">Update Email</button>
+                <form id="update-email" class="form" action="#">
+                    <label for="current-email">Current Email</label>
+                    <input type="email" id="current-email" placeholder="Enter current email">
+                    <label for="new-email">New Email</label>
+                    <input type="email" id="new-email" placeholder="Enter new email">
+                    <button type="submit">Update Email</button>
+                </form>
+            </div>
+            <div class="settings-item">
+                <h3>Manage Notifications</h3>
+                <form action="#">
+                    <label>
+                        <input type="checkbox" checked> Email Notifications
+                    </label>
+                    <label>
+                        <input type="checkbox"> SMS Notifications
+                    </label>
+                    <button type="submit">Save Preferences</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleButtons = document.querySelectorAll('.toggle-form');
+
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-target');
+                const targetForm = document.getElementById(targetId);
+
+                targetForm.classList.toggle('show-form');
+            });
+        });
+    </script>
+</body>
+</html>

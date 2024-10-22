@@ -1,0 +1,120 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Login - University Students Follow-Up Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://img.buzzfeed.com/buzzfeed-static/static/2017-04/19/15/asset/buzzfeed-prod-fastlane-03/sub-buzz-6069-1492630255-3.jpg?downsize=715:*&output-format=auto&output-quality=auto') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            background-color: #00bcd4;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container button:hover {
+            background-color: #0097a7;
+        }
+
+        .login-container a {
+            color: #00bcd4;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .login-container a:hover {
+            color: #007c91;
+        }
+
+        .login-container .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Parent Login</h2>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="button" onclick="login()">Login</button>
+    </form>
+    <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+    <a href="#" onclick="accountRecovery()">Account Recovery</a>
+    <div class="footer">
+        <p>&copy; 2024 University Students Follow-Up Platform</p>
+    </div>
+
+<script>
+    function login() {
+        // Add login logic here
+        alert('Login logic here.');
+    }
+
+    function showTwoFactorAuth() {
+        // Show two-factor authentication setup
+        alert('Two-factor authentication setup here.');
+    }
+
+    function forgotPassword() {
+        // Forgot password logic
+        alert('Forgot password logic here.');
+    }
+
+    function accountRecovery() {
+        // Account recovery logic
+        alert('Account recovery logic here.');
+    }
+</script>
+
+</body>
+</html>
+

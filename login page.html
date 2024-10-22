@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #00796b;
+            text-align: center;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00796b;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #00796b;
+            border-radius: 5px;
+            background-color: #e0f2f1;
+        }
+        .login-container .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .login-container button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .login-container .login-button {
+            background-color: #00796b;
+            color: #ffffff;
+        }
+        .login-container .login-button:hover {
+            background-color: #004d40;
+        }
+        .login-container .cancel-button {
+            background-color: #d32f2f;
+            color: #ffffff;
+        }
+        .login-container .cancel-button:hover {
+            background-color: #b71c1c;
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        .forgot-password a {
+            color: #00796b;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .login-container .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .login-container .section.red {
+            background-color: #ffebee;
+            border: 1px solid #e57373;
+        }
+        .login-container .section.magenta {
+            background-color: #fce4ec;
+            border: 1px solid #f06292;
+        }
+        .login-container .section.yellow {
+            background-color: #fffde7;
+            border: 1px solid #fff176;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <div class="section red">
+            <form action="/login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <div class="forgot-password">
+                    <a href="/forgot-password">Forgot Password?</a>
+                </div>
+                
+                <div class="button-container">
+                    <button type="submit" class="login-button">Login</button>
+                    <button type="button" class="cancel-button" onclick="window.location.href='/';">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <div class="section magenta">
+            <p>New here? <a href="/register">Create an account</a></p>
+        </div>
+        <div class="section yellow">
+            <p>Need help? <a href="/support">Contact Support</a></p>
+        </div>
+    </div>
+</body>
+</html>

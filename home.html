@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .feature {
+            width: 45%;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            display: none;
+        }
+
+        .signup-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .login-section {
+            background-color: magenta;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .login-btn {
+            background-color: magenta;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #cc00cc;
+        }
+
+        /* Background Images */
+        .calendar-feature {
+            background-image: url('https://th.bing.com/th/id/OIP.2acu0cweRidWoAGFG_GdTQHaHC?rs=1&pid=ImgDetMain');
+        }
+
+        .progress-feature {
+            background-image: url('https://th.bing.com/th/id/OIP.dKuaMlmHINUohmAZq7YI_gAAAA?rs=1&pid=ImgDetMain');
+        }
+
+        .communication-feature {
+            background-image: url('https://th.bing.com/th/id/R.52f4c5f2c87546273b1ac43e89e1c995?rik=ARQf2Ni49t6VZw&pid=ImgRaw&r=0');
+        }
+
+        .resources-feature {
+            background-image: url('https://digitaledge.org/wp-content/uploads/2020/11/Data-Access.png');
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Empower Your Parenting Journey</h1>
+        <img src="https://i.pinimg.com/originals/56/79/5e/56795e95677ea2f61b06bb5234525e19.png" alt="Logo" class="logo">
+        <p>Stay connected with your university student's success.</p>
+    </div>
+    <div class="container">
+        <h2>Why Choose Us?</h2>
+        <div class="features">
+            <div class="feature calendar-feature">
+                <h3>Track Important Dates</h3>
+                <p>Stay updated with all academic deadlines and events to support your student's schedule.</p>
+            </div>
+            <div class="feature progress-feature">
+                <h3>Monitor Progress</h3>
+                <p>Get real-time insights into your student's academic performance and achievements.</p>
+            </div>
+            <div class="feature communication-feature">
+                <h3>Easy Communication</h3>
+                <p>Effortlessly connect with university staff, instructors, and other parents for better collaboration.</p>
+            </div>
+            <div class="feature resources-feature">
+                <h3>Access Resources</h3>
+                <p>Explore a wealth of resources and tools to enhance your student's learning experience.</p>
+            </div>
+        </div>
+        <p>Ready to get started?</p>
+        <a href="signup.html" class="signup-btn">Sign Up Now</a>
+    </div>
+    <div class="login-section">
+        <h2>Login</h2>
+        <p>Login to access your account</p>
+        <a href="login.html" class="login-btn">Login</a>
+    </div>
+ <section class="auth-section">
+        <a href="UPDATED.html" class="login">Login</a>
+        <a href="UPDATED.html" class="signup">Sign Up now</a>
+    </section>
+</body>
+</html>

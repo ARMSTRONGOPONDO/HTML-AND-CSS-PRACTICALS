@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Parent Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            margin: 2em auto;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 2em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 2em;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        .message {
+            background-color: #e7f3fe;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-left: 5px solid #2196F3;
+        }
+
+        .message p {
+            margin: 0.5em 0;
+        }
+
+        .message .department {
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .reaction {
+            margin-top: 1em;
+            padding: 0.5em;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .reaction button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .reaction button[disabled] {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .reaction button:hover {
+            background-color: #45a049;
+        }
+
+        .comment {
+            background-color: #f0f0f0;
+            margin-top: 0.5em;
+            padding: 0.5em;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>School Parent Portal</h1>
+    </header>
+    <main>
+        <section class="section notifications">
+            <h2>Notifications</h2>
+            <div id="notificationList"></div>
+        </section>
+    </main>
+    <script>
+        const notifications = [
+            { department: "Math Department", message: "Your child has shown great improvement in mathematics." },
+            { department: "Science Department", message: "There will be a science fair next month. Participation is encouraged." },
+            { department: "Sports Department", message: "The school football team has won the interschool championship." }
+        ];
+
+        const notificationList = document.getElementById('notificationList');
+
+        notifications.forEach((notification, index) => {
+            const notificationContainer = document.createElement('div');
+            notificationContainer.classList.add('message');
+            notificationContainer.innerHTML = `
+                <p class="department">${notification.department}</p>
+                <p>${notification.message}</p>
+                <div class="reaction">
+                    <button onclick="likeNotification(${index})">Like</button>
+                    <button onclick="commentNotification(${index})">Comment</button>
+                </div>
+                <div id="comments-${index}" class="comments"></div>
+            `;
+            notificationList.appendChild(notificationContainer);
+        });
+
+        function likeNotification(index) {
+            alert('You liked the notification from ' + notifications[index].department);
+        }
+
+        function commentNotification(index) {
+            const comment = prompt('Enter your comment:');
+            if (comment) {
+                const commentsDiv = document.getElementById(`comments-${index}`);
+                const commentContainer = document.createElement('div');
+                commentContainer.classList.add('comment');
+                commentContainer.innerHTML = `<p>${comment}</p>`;
+                commentsDiv.appendChild(commentContainer);
+
+                // Re-enable comment button after commenting
+                const commentButton = document.querySelector(`#notificationList div:nth-child(${index + 1}) .reaction button:nth-child(2)`);
+                commentButton.disabled = false;
+                commentButton.style.backgroundColor = '#4CAF50';
+                commentButton.style.cursor = 'pointer';
+            }
+        }
+    </script>
+</body>
+</html>
